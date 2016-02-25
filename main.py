@@ -32,6 +32,9 @@ class main():
         os.system('cls' if os.name=='nt' else 'clear')
 
     def __playerTurn(self, game, pines):
+        """
+            Takes a input from player on how many pines he knocked down. Calls it's self recoursive if he should roll again. If not it returns a next player game object
+        """
         try: 
             if game.roll(int(pines)):
                 print 'Roll Again!'
@@ -43,6 +46,9 @@ class main():
         return self.lane.next()
 
     def __gameOver(self, game):
+        """
+            Checks if all frames are filled out, if not it returns False otherwise True
+        """
         for f in game.frames: 
             if not f.isComplete():
                 return False
